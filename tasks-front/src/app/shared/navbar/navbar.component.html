@@ -1,0 +1,9 @@
+<div class="sideBar" [ngStyle]="{ width: toggleNav$ ? '250px' : '100px' }">
+  <div class="header">Collections</div>
+  <div *ngIf="toggleNav$">side nav {{ toggleNav$ }}</div>
+  <ul>
+    <li>School</li>
+    <li>Personal</li>
+    <li>Design</li>
+  </ul>
+</div>

@@ -1,0 +1,28 @@
+<header>
+  <nav>
+    <span>
+      <button (click)="toggleNavBar()">
+        <i class="fa fa-bars" [style]="{ color: icon }"></i>
+      </button>
+    </span>
+
+    <div *ngIf="toggleNav$ | async">side nav {{ toggleNav$ }}</div>
+
+    <span>
+      <a [routerLink]="''">
+        <i
+          class="fa-solid fa-square-poll-horizontal"
+          [style]="{ color: icon, size: '5px' }"
+        ></i>
+        Dashboard
+      </a>
+    </span>
+
+    <span>
+      <a [routerLink]="'collections'">
+        <i class="fa-solid fa-folder-closed" [style]="{ color: icon }"></i>
+        Collections
+      </a>
+    </span>
+  </nav>
+</header>
