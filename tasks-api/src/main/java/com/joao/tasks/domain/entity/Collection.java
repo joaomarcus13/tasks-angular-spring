@@ -35,7 +35,7 @@ public class Collection {
     private String title;
 
     @Column(name = "tasks")
-    @OneToMany(mappedBy = "collection", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Task> tasks;
     
     @Column(name = "created_date")

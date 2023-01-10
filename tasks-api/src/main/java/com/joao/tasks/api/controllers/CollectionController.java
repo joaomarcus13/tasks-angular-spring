@@ -2,6 +2,7 @@ package com.joao.tasks.api.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import com.joao.tasks.api.dto.CollectionDTO;
 import com.joao.tasks.domain.entity.Collection;
 import com.joao.tasks.services.ICollectionService;
+
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -37,7 +40,14 @@ public class CollectionController {
     @ResponseBody
     @ResponseStatus(HttpStatus.CREATED)
     @ApiOperation("Cria uma collection")
-    public Collection create(@RequestBody CollectionDTO collectionDTO) {
+    public Collection create(@RequestBody @Valid CollectionDTO collectionDTO) {
         return this.collectionService.save(collectionDTO);
+    }
+    
+    @GetMapping
+    @ResponseBody
+    @ApiOperation("Listar Todas as collections")
+    public List<Collection> index(){
+        return this.collectionService.findAll();
     }
 }

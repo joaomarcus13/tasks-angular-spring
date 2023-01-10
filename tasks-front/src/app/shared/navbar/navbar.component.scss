@@ -1,7 +1,8 @@
+@import "src/scss/mixins"; 
 :host {
   .sideBar {
     height: 100%;
-    // width: 250px;
+    width: 250px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -11,6 +12,14 @@
     transition: 0.5s;
     margin-top: 50px;
   }
+  .closeNavBar{
+    translate: -250px;
+  }
+  .header{
+    span{
+      margin-right: 10px;
+    }
+  }
   .header,
   ul {
     padding: 10%;
@@ -18,6 +27,19 @@
   ul {
     li {
       padding: 10px 0;
+    }
+  }
+  .inputTitle{
+    padding: 0 10%;
+    input{
+      background-color: transparent;
+      border: 2px solid var(--primary);
+      padding: 5px;
+      text-align: center;
+      border-radius: 10px;
+      &::placeholder{
+        color: rgb(184, 184, 184);
+      }
     }
   }
 }

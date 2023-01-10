@@ -1,0 +1,16 @@
+:host {
+  main {
+    margin-left: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 0;
+    transition: 0.5s;
+  }
+  .expand{
+    margin-left: 0;
+  }
+  .content {
+    width: 50%;
+  }
+}

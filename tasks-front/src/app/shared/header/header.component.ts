@@ -4,8 +4,7 @@ import { Store, select } from '@ngrx/store';
 import {
   AppStateType,
   selectOpenSideBar,
-  toggle,
-  StateType,
+  toggle
 } from 'src/app/core/store/app';
 
 @Component({

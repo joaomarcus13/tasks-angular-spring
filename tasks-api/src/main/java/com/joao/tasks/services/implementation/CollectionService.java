@@ -7,10 +7,13 @@ import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import com.joao.tasks.api.dto.CollectionDTO;
 import com.joao.tasks.domain.entity.Collection;
+import com.joao.tasks.domain.entity.Task;
 import com.joao.tasks.domain.repository.CollectionRepository;
+import com.joao.tasks.exceptions.ResourceNotFound;
 import com.joao.tasks.services.ICollectionService;
 
 @Service
@@ -34,9 +37,20 @@ public class CollectionService implements ICollectionService {
     }
 
     @Override
-    public void update(CollectionDTO collection, Integer id) {
-        // TODO Auto-generated method stub
-        
+    public void update(Collection collection, Integer id) {
+        Collection foundCollection = this.collectionRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFound("Collection não encontrada"));
+        collection.setId(foundCollection.getId());
+        this.collectionRepository.save(collection);
+    }
+
+    @Override
+    public void addTask(Task task, Integer collectionId) {
+        Collection collection = this.findById(collectionId);
+        List tasks = collection.getTasks();
+        tasks.add(task);
+        collection.setTasks(tasks);
+        this.collectionRepository.save(collection);
     }
 
     @Override
@@ -47,14 +61,13 @@ public class CollectionService implements ICollectionService {
 
     @Override
     public List<Collection> findAll() {
-        // TODO Auto-generated method stub
-        return null;
+            return collectionRepository.findAll();
     }
 
     @Override
     public Collection findById(Integer id) {
-        // TODO Auto-generated method stub
-        return null;
+        return 
+        this.collectionRepository.findById(id).orElseThrow(() -> new ResourceNotFound("collection não encontrada"));
     }
 
     public Collection convertToEntity(CollectionDTO collectionDTO){
@@ -63,5 +76,13 @@ public class CollectionService implements ICollectionService {
         collection.setCreatedDate(LocalDateTime.now());
         return collection;
     }
+
+    public CollectionDTO convertToDto(Collection collection){
+        CollectionDTO collectionDTO = modelMapper.map(collection, CollectionDTO.class);
+        return collectionDTO;
+
+    }
+
+
     
 }

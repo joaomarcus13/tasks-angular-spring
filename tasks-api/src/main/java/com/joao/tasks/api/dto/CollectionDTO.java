@@ -4,6 +4,8 @@ import java.text.ParseException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
+import javax.validation.constraints.NotEmpty;
+
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -18,7 +20,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CollectionDTO {
-
+    @NotEmpty(message = "Titulo não pode ser vazio")
     private String title;
 
 }

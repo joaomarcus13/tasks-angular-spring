@@ -9,36 +9,32 @@ import {
 } from '@ngrx/store';
 
 export interface AppStateType {
-  openSideBar: boolean;
+  sideBarOpened: boolean;
 }
 
-export interface StateType {
-  stateApp: AppStateType;
-}
-
+// state
 const INITIAL_STATE: AppStateType = {
-  openSideBar: true,
+  sideBarOpened: true,
 };
 
-export const toggle = createAction('TOGGLE');
+// actions
+export const toggle = createAction('[App] toggle NavBar');
 
+// selectors
 const selectFeature = createFeatureSelector<AppStateType>('app');
 
 export const selectOpenSideBar = createSelector(
   selectFeature,
-  (state) => state.openSideBar
+  (state) => state.sideBarOpened
 );
 
-// export function getOpenSideBar(state: AppStateType) {
-//   return state.openSideBar;
-// }
-
+// reducer
 export const reducer = createReducer(
   INITIAL_STATE,
   on(toggle, (state) => {
     return {
       ...state,
-      openSideBar: !state.openSideBar,
+      sideBarOpened: !state.sideBarOpened,
     };
   })
 );

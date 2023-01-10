@@ -10,13 +10,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-main {
-  margin-left: 250px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 60px 0;
-}
+
 .header {
   padding-bottom: 50px;
   @include flex($ai: center);
@@ -31,6 +25,4 @@ main {
     }
   }
 }
-.content {
-  width: 50%;
-}
+

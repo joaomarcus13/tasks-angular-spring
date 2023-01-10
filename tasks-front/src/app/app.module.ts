@@ -12,10 +12,15 @@ import { CardCollectionComponent } from './shared/card-collection/card-collectio
 import { CardTaskComponent } from './shared/card-task/card-task.component';
 import { StoreModule } from '@ngrx/store';
 import { reducer as appReducer } from 'src/app/core/store/app';
+import { reducer as tasksReducer } from 'src/app/core/store/tasks';
+import { AddButtonComponent } from './shared/add-button/add-button.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
+
     AppComponent,
     DashboardComponent,
     CollectionsComponent,
@@ -23,12 +28,15 @@ import { reducer as appReducer } from 'src/app/core/store/app';
     HeaderComponent,
     CardCollectionComponent,
     CardTaskComponent,
+    AddButtonComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    StoreModule.forRoot({ app: appReducer }, {}),
+    HttpClientModule,
+    StoreModule.forRoot({ app: appReducer, tasks: tasksReducer }, {}),
+    FormsModule
     // FontAwesomeModule,
   ],
   providers: [],

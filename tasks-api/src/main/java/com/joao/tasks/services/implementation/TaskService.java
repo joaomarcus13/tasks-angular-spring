@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.joao.tasks.api.dto.TaskDTO;
+import com.joao.tasks.domain.entity.Collection;
 import com.joao.tasks.domain.entity.Task;
 import com.joao.tasks.domain.repository.TaskRepository;
 import com.joao.tasks.exceptions.ResourceNotFound;
@@ -20,19 +21,25 @@ import com.joao.tasks.utils.Status;
 public class TaskService implements ITaskServices {
 
     private TaskRepository taskRepository;
+    private CollectionService collectionService;
 
     @Autowired
     private ModelMapper modelMapper;
 
-    public TaskService(TaskRepository taskRepository) {
+    public TaskService(
+        TaskRepository taskRepository, 
+        CollectionService collectionService
+        ) {
         this.taskRepository = taskRepository;
+        this.collectionService = collectionService;
     }
 
     @Override
     public Task save(TaskDTO taskdDto) {
         Task task = convertToEntity(taskdDto);
-        Task createdTask = this.taskRepository.save(task);
-        return createdTask;
+        Task savedTask = this.taskRepository.save(task);
+        collectionService.addTask(savedTask, taskdDto.getCollectionId());
+        return savedTask;
     }
 
     @Override

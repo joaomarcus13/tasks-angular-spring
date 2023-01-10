@@ -2,6 +2,8 @@ package com.joao.tasks.api.dto;
 
 import java.time.LocalDateTime;
 
+import javax.validation.constraints.NotEmpty;
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
@@ -12,7 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TaskDTO {
+    @NotEmpty(message = "Descrição não pode ser vazia")
     private String description;
-    private Integer collection_id;
+    private Integer collectionId;
     private LocalDateTime targetDate;
 }

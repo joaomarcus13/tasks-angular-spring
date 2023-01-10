@@ -1,9 +1,14 @@
-<div class="sideBar" [ngStyle]="{ width: toggleNav$ ? '250px' : '100px' }">
-  <div class="header">Collections</div>
-  <div *ngIf="toggleNav$">side nav {{ toggleNav$ }}</div>
+<div class="sideBar" [ngClass]="{ 'closeNavBar' : !toggleNav$ }">
+  <div class="header">
+     <span>Collections</span>
+     <app-add-button (click)="addCollection()"></app-add-button>
+  </div>
+  <div *ngIf="showInput" class="inputTitle">
+    <input type="text" #input (keyup.enter)="createCollection(input)" placeholder="Digite o titulo da coleção" />
+  </div>
   <ul>
-    <li>School</li>
-    <li>Personal</li>
-    <li>Design</li>
+    <li *ngFor="let item of collections$ | async">
+      {{ item.title }}
+    </li>
   </ul>
 </div>
