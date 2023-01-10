@@ -1,5 +1,7 @@
 :host {
   header {
+    position: fixed;
+    width: 100%;
     background-color: var(--bg2);
     height: 50px;
     display: flex;

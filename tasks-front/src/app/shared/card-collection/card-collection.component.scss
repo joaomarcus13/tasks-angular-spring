@@ -1,42 +1,25 @@
-@import "../../../scss/mixins";
+@import "src/scss/mixins";
 :host {
   .card {
-    background-color: var(--bg2);
-    border-radius: 14px;
-  }
-  .header {
-    background-color: var(--bg3);
-    padding: 16px;
-    border-radius: 14px 14px 0 0;
-  }
-  .content {
-    padding: 5px 0;
-    li {
-      gap: 16px;
-      padding: 20px;
-      label {
-        display: block;
-        position: relative;
-        padding-left: 35px;
-        // margin-bottom: 12px;
-        cursor: pointer;
-        // font-size: 22px;
-        user-select: none;
-        .text {
-          @include flex($fd: column);
-          gap: 2px;
-          span:last-child {
-            font-size: 12px;
-            color: #d46171;
-          }
-        }
-      }
+    @include flex($fd: column, $jc: space-between);
+    & > div:first-child {
+      background-color: var(--primary);
+      width: 40px;
+      height: 40px;
+      @include flex($ai: center, $jc: center);
+      border-radius: 10px;
     }
-  }
-  .footer {
-    padding: 16px;
-    text-align: center;
-    border-top: 1px solid var(--bg3);
-    cursor: pointer;
+    .title {
+      font-size: 1.2rem;
+    }
+    span {
+      font-size: 0.8rem;
+      color: var(--placeholder);
+    }
+    width: 150px;
+    height: 150px;
+    border-radius: 16px;
+    padding: 20px;
+    background-color: var(--bg3);
   }
 }

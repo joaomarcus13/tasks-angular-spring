@@ -1,24 +1,7 @@
-@import "../../../scss/mixins";
 :host {
-  .addTask {
-    width: 100%;
-    border: 2px solid var(--bg3);
-    border-radius: 12px;
-    padding: 12px;
-    @include flex($ai: center);
-    gap: 12px;
-    button {
-      width: 23px;
-      height: 23px;
-      border: none;
-      border-radius: 8px;
-      background-color: var(--primary);
-    }
-  }
-  .tasksContainer {
-    padding-top: 30px;
-    span {
-      margin: 10px;
-    }
+  .content {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 14px;
   }
 }

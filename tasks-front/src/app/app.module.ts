@@ -16,6 +16,8 @@ import { reducer as tasksReducer } from 'src/app/core/store/tasks';
 import { AddButtonComponent } from './shared/add-button/add-button.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CollectionComponent } from './pages/collection/collection.component';
+import { CardCollectionDashComponent } from './shared/card-collection-dash/card-collection-dash.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -29,6 +31,8 @@ import { HttpClientModule } from '@angular/common/http';
     CardCollectionComponent,
     CardTaskComponent,
     AddButtonComponent,
+    CollectionComponent,
+    CardCollectionDashComponent,
   ],
   imports: [
     BrowserModule,

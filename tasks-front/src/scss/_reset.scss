@@ -5,6 +5,11 @@
   outline: none;
 }
 
+html,
+body {
+  height: 100vh;
+}
+
 ul {
   list-style: none;
 }
@@ -13,11 +18,10 @@ a {
   text-decoration: none;
 }
 
-button{
-  cursor: pointer
+button {
+  cursor: pointer;
 }
 
-input{
+input {
   color: white;
 }
-

@@ -1,4 +1,4 @@
-@import "src/scss/mixins"; 
+@import "src/scss/mixins";
 :host {
   .sideBar {
     height: 100%;
@@ -11,33 +11,34 @@
     overflow-x: hidden;
     transition: 0.5s;
     margin-top: 50px;
+    padding: 40px 30px;
   }
-  .closeNavBar{
+  .closeNavBar {
     translate: -250px;
   }
-  .header{
-    span{
+  .header {
+    span {
       margin-right: 10px;
     }
   }
-  .header,
-  ul {
-    padding: 10%;
-  }
+
   ul {
     li {
       padding: 10px 0;
+      cursor: pointer;
     }
   }
-  .inputTitle{
+  .inputTitle {
     padding: 0 10%;
-    input{
+    input {
       background-color: transparent;
-      border: 2px solid var(--primary);
-      padding: 5px;
-      text-align: center;
-      border-radius: 10px;
-      &::placeholder{
+      border: none;
+      padding: 6px 0;
+      font-size: 1rem;
+      // text-align: center;
+      // border-radius: 10px;
+      caret-color: var(--primary);
+      &::placeholder {
         color: rgb(184, 184, 184);
       }
     }

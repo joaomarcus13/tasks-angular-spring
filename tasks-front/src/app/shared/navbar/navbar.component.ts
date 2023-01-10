@@ -1,7 +1,13 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnChanges,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { Store, select } from '@ngrx/store';
-import {TaskService} from 'src/app/core/services/task.service'
+import { TaskService } from 'src/app/core/services/task.service';
 import { AppStateType, selectOpenSideBar } from 'src/app/core/store/app';
 import { TasksStateType, selectCollections } from 'src/app/core/store/tasks';
 import { Collection } from 'src/app/core/models/collection';
@@ -13,26 +19,34 @@ import { Collection } from 'src/app/core/models/collection';
 })
 export class NavbarComponent implements OnInit {
   public toggleNav$!: boolean;
-  public collections$!: Observable<Collection[]>
-  public showInput: boolean = true;
+  public collections$!: Observable<Collection[]>;
+  public showInput: boolean = false;
+  @ViewChild('input')
+  public input!: ElementRef<HTMLInputElement>;
 
-  constructor(private store: Store<AppStateType>, private taskStore: Store<TasksStateType> , private apiService: TaskService) {}
+  constructor(
+    private store: Store<AppStateType>,
+    private taskStore: Store<TasksStateType>,
+    private apiService: TaskService
+  ) {}
   ngOnInit(): void {
     this.store
       .select(selectOpenSideBar)
       .subscribe((res) => (this.toggleNav$ = res));
 
     this.collections$ = this.taskStore
-      .select(selectCollections).pipe(tap(console.log))
+      .select(selectCollections)
+      .pipe(tap(console.log));
   }
 
-  addCollection(){
+  addCollection() {
     this.showInput = true;
+    this.input.nativeElement.focus();
   }
 
-  createCollection(input: HTMLInputElement){
-    this.apiService.createCollection({title: input.value})
-    input.value = ''
+  createCollection(input: HTMLInputElement) {
+    this.apiService.createCollection({ title: input.value });
+    input.value = '';
+    this.showInput = false;
   }
-
 }
