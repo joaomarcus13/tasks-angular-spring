@@ -6,7 +6,12 @@
 
   <ul>
     <li *ngFor="let item of collections$ | async">
-      {{ item.title }}
+      <span>
+        {{ item.title.substring(0, 1) }}
+      </span>
+      <span>
+        {{ item.title }}
+      </span>
     </li>
     <li *ngIf="showInput" class="inputTitle">
       <input

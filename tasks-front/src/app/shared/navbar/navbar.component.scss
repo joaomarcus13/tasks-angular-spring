@@ -24,19 +24,30 @@
 
   ul {
     li {
-      padding: 10px 0;
+      @include flex($ai: center);
       cursor: pointer;
+      height: 30px;
+      margin: 20px 0;
+      gap: 20px;
+      span:first-child {
+        @include flex($ai: center, $jc: center);
+        font-weight: bold;
+        background-color: var(--primary);
+        border-radius: 10px;
+        height: 30px;
+        width: 30px;
+      }
     }
   }
+  .icon {
+  }
   .inputTitle {
-    padding: 0 10%;
+    // padding: 0 10%;
     input {
       background-color: transparent;
       border: none;
       padding: 6px 0;
       font-size: 1rem;
-      // text-align: center;
-      // border-radius: 10px;
       caret-color: var(--primary);
       &::placeholder {
         color: rgb(184, 184, 184);

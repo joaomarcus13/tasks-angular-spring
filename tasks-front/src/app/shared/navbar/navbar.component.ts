@@ -18,11 +18,11 @@ import { Collection } from 'src/app/core/models/collection';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('input')
+  public input!: ElementRef<HTMLInputElement>;
   public toggleNav$!: boolean;
   public collections$!: Observable<Collection[]>;
   public showInput: boolean = false;
-  @ViewChild('input')
-  public input!: ElementRef<HTMLInputElement>;
 
   constructor(
     private store: Store<AppStateType>,
