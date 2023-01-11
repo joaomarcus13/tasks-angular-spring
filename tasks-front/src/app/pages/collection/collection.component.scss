@@ -1,5 +1,6 @@
 @import "../../../scss/mixins";
 :host {
+  position: relative;
   .addTask {
     width: 100%;
     border: 2px solid var(--bg3);
@@ -7,6 +8,7 @@
     padding: 12px;
     @include flex($ai: center);
     gap: 12px;
+    cursor: pointer;
     button {
       width: 23px;
       height: 23px;

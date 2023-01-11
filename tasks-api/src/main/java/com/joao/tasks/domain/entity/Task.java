@@ -49,7 +49,7 @@ public class Task {
     @Column(name = "status")
     private Status status;
 
-    // @ManyToOne
-    // private Collection collection;
+    @ManyToOne
+    private Collection collection;
 
 }

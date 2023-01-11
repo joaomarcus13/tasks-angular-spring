@@ -34,9 +34,9 @@ public class Collection {
     @NotEmpty(message = "Campo título é obrigatório")
     private String title;
 
-    @Column(name = "tasks")
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Task> tasks;
+    // @Column(name = "tasks")
+    // @OneToMany(fetch = FetchType.LAZY)
+    // private List<Task> tasks;
     
     @Column(name = "created_date")
     private LocalDateTime createdDate;

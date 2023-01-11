@@ -46,11 +46,11 @@ public class CollectionService implements ICollectionService {
 
     @Override
     public void addTask(Task task, Integer collectionId) {
-        Collection collection = this.findById(collectionId);
-        List tasks = collection.getTasks();
-        tasks.add(task);
-        collection.setTasks(tasks);
-        this.collectionRepository.save(collection);
+        // Collection collection = this.findById(collectionId);
+        // List tasks = collection.getTasks();
+        // tasks.add(task);
+        // collection.setTasks(tasks);
+        // this.collectionRepository.save(collection);
     }
 
     @Override
@@ -72,7 +72,7 @@ public class CollectionService implements ICollectionService {
 
     public Collection convertToEntity(CollectionDTO collectionDTO){
         Collection collection = modelMapper.map(collectionDTO, Collection.class);
-        collection.setTasks(new ArrayList<>());
+        // collection.setTasks(new ArrayList<>());
         collection.setCreatedDate(LocalDateTime.now());
         return collection;
     }

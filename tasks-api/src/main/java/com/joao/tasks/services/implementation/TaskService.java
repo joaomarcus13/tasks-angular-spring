@@ -38,7 +38,6 @@ public class TaskService implements ITaskServices {
     public Task save(TaskDTO taskdDto) {
         Task task = convertToEntity(taskdDto);
         Task savedTask = this.taskRepository.save(task);
-        collectionService.addTask(savedTask, taskdDto.getCollectionId());
         return savedTask;
     }
 
@@ -89,6 +88,14 @@ public class TaskService implements ITaskServices {
         return this.taskRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFound("Tarefa não encontrada"));
     }
+    @Override
+    public List<Task> findByCollection(Integer id) {
+        Collection c = new Collection();
+        c.setId(id);
+        return this.taskRepository.findByCollection(c);
+    }
+
+
 
     public Task convertToEntity(TaskDTO taskDTO){
         Task task = modelMapper.map(taskDTO, Task.class);

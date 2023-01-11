@@ -87,4 +87,11 @@ public class TaskController {
     public void updateMany(@RequestBody List<Task> tasks) {
         this.taskService.updateMany(tasks);
     }
+
+    @GetMapping("/collection/{id}")
+    @ResponseBody
+    public List<Task> getTasksByCollection(@PathVariable Integer id){
+        return this.taskService.findByCollection(id);
+    }
+
 }

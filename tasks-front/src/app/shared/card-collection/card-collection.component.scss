@@ -2,6 +2,7 @@
 :host {
   .card {
     @include flex($fd: column, $jc: space-between);
+    cursor: pointer;
     & > div:first-child {
       background-color: var(--primary);
       width: 40px;

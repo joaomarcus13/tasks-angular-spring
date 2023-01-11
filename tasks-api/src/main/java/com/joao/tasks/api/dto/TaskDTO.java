@@ -14,6 +14,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TaskDTO {
+    private Integer id;
     @NotEmpty(message = "Descrição não pode ser vazia")
     private String description;
     private Integer collectionId;

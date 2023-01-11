@@ -5,14 +5,16 @@
   </div>
 
   <ul>
-    <li *ngFor="let item of collections$ | async">
+    <ng-template ngFor let-item [ngForOf]="collections$ | async">
+    <li [routerLink]="['collection',item.id]">
       <span>
-        {{ item.title.substring(0, 1) }}
+        {{ item.title.substring(0, 1).toUpperCase() }}
       </span>
       <span>
         {{ item.title }}
       </span>
     </li>
+  </ng-template>
     <li *ngIf="showInput" class="inputTitle">
       <input
         type="text"

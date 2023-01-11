@@ -20,4 +20,7 @@ public interface ITaskServices {
     public List<Task> findAll();
 
     public Task findById(Integer id);
+
+    public List<Task> findByCollection(Integer id);
+
 }

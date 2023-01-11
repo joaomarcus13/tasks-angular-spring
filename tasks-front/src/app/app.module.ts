@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CollectionComponent } from './pages/collection/collection.component';
 import { CardCollectionDashComponent } from './shared/card-collection-dash/card-collection-dash.component';
+import { CreateTaskPopupComponent } from './shared/create-task-popup/create-task-popup.component';
 // import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
@@ -33,6 +34,7 @@ import { CardCollectionDashComponent } from './shared/card-collection-dash/card-
     AddButtonComponent,
     CollectionComponent,
     CardCollectionDashComponent,
+    CreateTaskPopupComponent,
   ],
   imports: [
     BrowserModule,
