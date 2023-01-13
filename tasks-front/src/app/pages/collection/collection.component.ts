@@ -11,25 +11,29 @@ import { TaskService } from 'src/app/core/services/task.service';
 })
 export class CollectionComponent implements OnInit {
   public tasks: Task[] = [];
-  public popUpCreateTask = false;
+  public popUpCreateTask = true;
 
   constructor(private route: ActivatedRoute, private apiService: TaskService) {}
 
   ngOnInit(): void {
     const subscribe = {
       next: (res: Task[]) => {
-        this.tasks = res
+        this.tasks = res;
       },
       error: (err: any) => {
-        this.tasks = []
-      }
-    }
+        this.tasks = [];
+      },
+    };
     this.apiService
       .getTasks(this.route.snapshot.params['id'])
-      .subscribe(subscribe)  
+      .subscribe(subscribe);
   }
 
-  createTask(){
-    this.popUpCreateTask = true
+  openFormTask() {
+    this.popUpCreateTask = true;
+  }
+
+  createTask(value: any) {
+    console.log(value);
   }
 }

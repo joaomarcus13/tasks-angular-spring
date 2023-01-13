@@ -4,11 +4,14 @@
   </button>
   <h2>School</h2>
 </div>
-<div class="addTask" (click)="createTask()">
+<div class="addTask" (click)="openFormTask()">
   <app-add-button></app-add-button>
   <span>Add a task</span>
 </div>
-<app-create-task-popup></app-create-task-popup>
+<app-create-task-popup
+  *ngIf="popUpCreateTask"
+  (sendTaskForm)="createTask($event)"
+></app-create-task-popup>
 <div class="tasksContainer">
   <span>Tasks - 8</span>
   <ng-template ngFor let-item [ngForOf]="tasks">

@@ -19,11 +19,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CollectionComponent } from './pages/collection/collection.component';
 import { CardCollectionDashComponent } from './shared/card-collection-dash/card-collection-dash.component';
 import { CreateTaskPopupComponent } from './shared/create-task-popup/create-task-popup.component';
-// import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
-
     AppComponent,
     DashboardComponent,
     CollectionsComponent,
@@ -42,8 +41,8 @@ import { CreateTaskPopupComponent } from './shared/create-task-popup/create-task
     BrowserAnimationsModule,
     HttpClientModule,
     StoreModule.forRoot({ app: appReducer, tasks: tasksReducer }, {}),
-    FormsModule
-    // FontAwesomeModule,
+    FormsModule,
+    FontAwesomeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
