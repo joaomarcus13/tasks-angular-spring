@@ -14,7 +14,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducer as appReducer } from 'src/app/core/store/app';
 import { reducer as tasksReducer } from 'src/app/core/store/tasks';
 import { AddButtonComponent } from './shared/add-button/add-button.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CollectionComponent } from './pages/collection/collection.component';
 import { CardCollectionDashComponent } from './shared/card-collection-dash/card-collection-dash.component';
@@ -42,6 +42,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     StoreModule.forRoot({ app: appReducer, tasks: tasksReducer }, {}),
     FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
   ],
   providers: [],

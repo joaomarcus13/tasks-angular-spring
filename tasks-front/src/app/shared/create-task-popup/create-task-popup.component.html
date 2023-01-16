@@ -1,14 +1,18 @@
 <div class="container">
-  <form #form="ngForm" (ngSubmit)="createTask(form)">
+  <form [formGroup]="formGroup" (ngSubmit)="createTask(formGroup.value)">
     <div>
-      <input type="text" placeholder="descriçao" ngModel />
       <input
-        ngModel
+        type="text"
+        placeholder="descriçao"
+        formControlName="description"
+      />
+      <input
         type="date"
         id="start"
         name="trip-start"
         [min]="today"
         max="2030-12-31"
+        formControlName="date"
       />
     </div>
 

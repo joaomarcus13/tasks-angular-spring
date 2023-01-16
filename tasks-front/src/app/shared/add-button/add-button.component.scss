@@ -1,5 +1,7 @@
+@import "src/scss/mixins";
 :host {
   button {
+    @include flex($ai: center, $jc: center);
     width: 23px;
     height: 23px;
     border: none;
