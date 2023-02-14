@@ -47,6 +47,9 @@ export class Task {
     get status(){
         return this.props.status
     }
+    set status(value: Status){
+        this.props.status = value
+    }
     get collection(){
         return this.props.collection
     }

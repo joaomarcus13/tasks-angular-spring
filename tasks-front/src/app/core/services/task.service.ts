@@ -42,7 +42,6 @@ export class TaskService {
     targetDate: string;
     collectionId: number;
   }) {
-    console.log(task);
     const toSend = {
       ...task,
       targetDate: new Date(task.targetDate).toISOString(),
@@ -59,6 +58,15 @@ export class TaskService {
       .get<Task[]>(`${this.url}/tasks/collection/${id}`)
       .subscribe((tasks) => {
         this.store.dispatch(setTasks({ tasks }));
+      });
+  }
+
+  public updateTask(task: Task) {
+
+    this.http
+      .post<Task>(`${this.url}/tasks/${task.id}`, {task})
+      .subscribe((task: Task) => {
+        this.getTasks(task.collection?.id as number);
       });
   }
 }

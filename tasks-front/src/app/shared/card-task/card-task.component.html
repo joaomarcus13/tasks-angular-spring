@@ -1,7 +1,7 @@
 <div class="card">
   <div class="content">
     <label>
-      <input type="checkbox" checked="checked" />
+      <input type="checkbox" [checked]="task.status == status.OPEN" (input)="editTaskStatus($event)" />
       <span class="checkmark"></span>
       <div class="text">
         <span>{{task.description}}</span>
