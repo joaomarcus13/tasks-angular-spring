@@ -62,11 +62,11 @@ export class TaskService {
   }
 
   public updateTask(task: Task) {
-
-    this.http
-      .post<Task>(`${this.url}/tasks/${task.id}`, {task})
-      .subscribe((task: Task) => {
-        this.getTasks(task.collection?.id as number);
-      });
+    this.http.put<Task>(`${this.url}/tasks/${task.id}`, { task }).subscribe({
+      next: (task: Task) => {
+        this.getTasks(task.collection?.id);
+      },
+      error: console.log,
+    });
   }
 }

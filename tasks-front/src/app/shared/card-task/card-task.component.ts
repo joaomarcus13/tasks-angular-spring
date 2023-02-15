@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Task, TaskType } from 'src/app/core/models/task';
+import { Task } from 'src/app/core/models/task';
 import {Status} from 'src/app/core/models/status'
 import { TaskService } from 'src/app/core/services/task.service';
 
@@ -21,11 +21,12 @@ export class CardTaskComponent implements OnInit {
   editTaskStatus(event: Event) {
     const { checked } = (event.target as HTMLInputElement)
     console.log(checked)
+    console.log( this.task)
     this.task.status = checked ? Status.DONE : Status.OPEN
     this.apiService.updateTask(this.task)
   }
 
   ngOnInit(): void {
-    // this.task = new Task(this.task)
+    this.task = new Task(this.task)
   }
 }

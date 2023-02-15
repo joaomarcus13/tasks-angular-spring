@@ -43,6 +43,5 @@ export class CollectionComponent implements OnInit {
       targetDate: date,
       collectionId: this.collectionID,
     });
-    console.log(value);
   }
 }

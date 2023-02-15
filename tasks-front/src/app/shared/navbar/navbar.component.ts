@@ -36,7 +36,7 @@ export class NavbarComponent implements OnInit {
 
     this.collections$ = this.taskStore
       .select(selectCollections)
-      .pipe(tap(console.log));
+     
   }
 
   addCollection() {
