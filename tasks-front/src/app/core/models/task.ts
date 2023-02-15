@@ -48,7 +48,8 @@ export class Task {
   get createdDate() {
     return this.props.createdDate;
   }
-  get targetDate() {
+
+  get targetDateFormat() {
     return this.props.targetDate
       ? new Intl.DateTimeFormat('pt-br', {
           dateStyle: 'full',
@@ -56,6 +57,10 @@ export class Task {
         }).format(new Date(this.props.targetDate))
       : '';
   }
+  get targetDate() {
+    return this.props.targetDate
+  }
+  
   get doneDate() {
     return this.props.doneDate;
   }

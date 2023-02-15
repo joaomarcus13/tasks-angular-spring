@@ -62,11 +62,10 @@ export class TaskService {
   }
 
   public updateTask(task: Task) {
-    this.http.put<Task>(`${this.url}/tasks/${task.id}`, { task }).subscribe({
-      next: (task: Task) => {
-        this.getTasks(task.collection?.id);
-      },
-      error: console.log,
-    });
+    const {description, status, targetDate, doneDate} = task
+    const collectionId = task.collection.id
+    this.http.put<Task>(`${this.url}/tasks/${task.id}`, {description, status, targetDate, doneDate} ).subscribe((task: Task) => {
+        this.getTasks(collectionId);
+      });
   }
 }
